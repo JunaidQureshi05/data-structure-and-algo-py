@@ -41,10 +41,37 @@ class BinarySearchTree:
                 currentNode =currentNode.left
             else:
                 return True
-        return False      
-my_bst=BinarySearchTree()
+        return False
 
-my_bst.insert(20)
-my_bst.insert(10)
+    def inorder(self,currentNode,my_list):
+        if currentNode!=None:
+            self.inorder(currentNode.left,my_list)
+            my_list.append(currentNode.value)
+            self.inorder(currentNode.right,my_list)
+        return my_list
+    
+    def preorder(self,currentNode,my_list):
+        if currentNode!=None:
+            my_list.append(currentNode.value)
+            self.preorder(currentNode.left,my_list)
+            self.preorder(currentNode.right,my_list)
+        return my_list
+    def postorder(self,currentNode,my_list):
+        if currentNode != None:
+            self.postorder(currentNode.left,my_list)
+            self.postorder(currentNode.right,my_list)
+            my_list.append(currentNode.value)
+        return my_list    
+tree = BinarySearchTree()
 
-print(my_bst.lookup(4))
+tree.insert(100)
+tree.insert(50)
+tree.insert(150)
+tree.insert(40)
+tree.insert(80)
+tree.insert(110)
+tree.insert(170)
+
+print(tree.inorder(tree.root,[]))
+print(tree.preorder(tree.root,[]))
+print(tree.postorder(tree.root,[]))
