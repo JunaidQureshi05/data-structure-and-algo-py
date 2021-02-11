@@ -22,7 +22,7 @@ def quickSortHelper(array,startIdx,endIdx):
             rightIdx-=1
     swap(array,rightIdx,pivotIdx)
 
-    leftSubArrayIsSmall = rightIdx -1 -startIdx < endIdx -(startIdx+1)
+    leftSubArrayIsSmall = rightIdx -1 -startIdx < endIdx -(rightIdx+1)
 
     if leftSubArrayIsSmall:
         quickSortHelper(array,startIdx,rightIdx-1)       
